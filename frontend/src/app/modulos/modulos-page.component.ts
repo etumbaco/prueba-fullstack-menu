@@ -213,7 +213,7 @@ export class ModulosPageComponent {
     });
   }
 
-  severidadRol(rolId: number): string {
+  severidadRol(rolId: number): "info" | "warn" | "success" | "secondary" {
     const nombre = this.nombreRol(rolId).toLowerCase();
     if (nombre.includes("admin")) return "info";
     if (nombre.includes("supervisor")) return "warn";

@@ -1,0 +1,34 @@
+# ===== Java / Maven =====
+backend/target/
+*.class
+*.jar
+!backend/.mvn/wrapper/maven-wrapper.jar
+
+# ===== IDEs =====
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# ===== Angular / Node =====
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+npm-debug.log*
+
+# ===== Python =====
+ia-script/__pycache__/
+ia-script/venv/
+ia-script/.venv/
+*.pyc
+ia-script/faiss_index/
+
+# ===== Entorno / secretos =====
+.env
+*.env
+
+# ===== Sistema =====
+.DS_Store
+Thumbs.db

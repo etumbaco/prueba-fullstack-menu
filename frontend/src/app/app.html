@@ -1,0 +1,39 @@
+<header class="barra-superior">
+  <h1 class="titulo">Administración de Módulos y Roles</h1>
+
+  <div class="selector-rol">
+    <label for="rol">Rol:</label>
+    <p-select
+      inputId="rol"
+      [options]="roles()"
+      optionLabel="nombre"
+      optionValue="id"
+      placeholder="Seleccione un rol"
+      [ngModel]="rolSeleccionadoId()"
+      (onChange)="seleccionarRol($event.value)" />
+  </div>
+</header>
+
+<div class="contenedor">
+  <aside class="menu-lateral">
+    @if (cargandoMenu()) {
+      <div class="estado"><p-progressSpinner strokeWidth="4" style="width:40px;height:40px" /></div>
+    } @else if (errorCarga()) {
+      <p class="estado error">{{ errorCarga() }}</p>
+    } @else if (rolSeleccionadoId() === null) {
+      <p class="estado">Seleccione un rol para ver su menú</p>
+    } @else if (menu().length === 0) {
+      <p class="estado">Este rol no tiene módulos asignados</p>
+    } @else {
+      <ul class="menu-raiz">
+        @for (nodo of menu(); track nodo.id) {
+          <app-menu-item [nodo]="nodo" />
+        }
+      </ul>
+    }
+  </aside>
+
+  <main class="contenido">
+    <router-outlet />
+  </main>
+</div>

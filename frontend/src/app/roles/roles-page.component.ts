@@ -90,11 +90,11 @@ import { Rol } from '../core/models/rol.model';
     </p-dialog>
   `,
   styles: `
-    .pagina { padding: 1.25rem; }
+    .pagina { padding: 2rem; } :host ::ng-deep .p-datatable { background: var(--superficie); border-radius: var(--radio); box-shadow: var(--sombra-sm); overflow: hidden; }
     .encabezado {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 1rem;
-      h2 { margin: 0; }
+      h2 { margin: 0; color: var(--marca-900); font-size: 1.5rem; }
     }
     .formulario { display: flex; flex-direction: column; gap: 1rem; }
     .campo {

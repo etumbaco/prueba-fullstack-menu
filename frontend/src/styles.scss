@@ -1,7 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   Estilos globales - Administración de Módulos y Roles
+   Paleta corporativa sobria con acentos modernos
+   ============================================================ */
 @import 'primeicons/primeicons.css';
 
-body {
-  margin: 0;
-  font-family: var(--p-font-family, system-ui, sans-serif);
+:root {
+  --marca-900: #142943;
+  --marca-700: #1e3a5f;
+  --marca-500: #2e5a88;
+  --marca-300: #6f9bc7;
+  --marca-100: #e8f0f8;
+  --acento: #f59e0b;
+  --fondo: #f1f5f9;
+  --superficie: #ffffff;
+  --texto: #1e293b;
+  --texto-suave: #64748b;
+  --borde: #e2e8f0;
+  --sombra-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --sombra-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --radio: 12px;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+  border: 2px solid var(--fondo);
+}
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Ajustes finos a PrimeNG para que combine con la paleta */
+.p-button {
+  font-weight: 600;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--marca-100);
+  color: var(--marca-700);
+  font-weight: 600;
+  border-color: var(--borde);
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  transition: background 0.15s ease;
+}
+
+.p-dialog .p-dialog-header {
+  background: var(--marca-700);
+  color: #fff;
+  border-radius: var(--radio) var(--radio) 0 0;
+}
+.p-dialog .p-dialog-header .p-dialog-title { font-weight: 600; }
+.p-dialog .p-dialog-header .p-dialog-header-icon { color: #fff; }
+.p-dialog .p-dialog-content { padding-top: 1.5rem; }

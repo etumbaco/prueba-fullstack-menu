@@ -1,8 +1,15 @@
 <header class="barra-superior">
-  <h1 class="titulo">Administración de Módulos y Roles</h1>
+  <div class="marca">
+    <div class="logo"><i class="pi pi-sitemap"></i></div>
+    <div class="titulos">
+      <h1 class="titulo">Administración de Módulos y Roles</h1>
+      <span class="subtitulo">Menú de navegación por rol</span>
+    </div>
+  </div>
 
   <div class="selector-rol">
-    <label for="rol">Rol:</label>
+    <i class="pi pi-user"></i>
+    <label for="rol">Rol activo</label>
     <p-select
       inputId="rol"
       [options]="roles()"
@@ -16,12 +23,13 @@
 
 <div class="contenedor">
   <aside class="menu-lateral">
+    <p class="menu-encabezado">Navegación</p>
     @if (cargandoMenu()) {
-      <div class="estado"><p-progressSpinner strokeWidth="4" style="width:40px;height:40px" /></div>
+      <div class="estado"><p-progressSpinner strokeWidth="4" style="width:36px;height:36px" /></div>
     } @else if (errorCarga()) {
-      <p class="estado error">{{ errorCarga() }}</p>
+      <p class="estado error"><i class="pi pi-exclamation-triangle"></i> {{ errorCarga() }}</p>
     } @else if (rolSeleccionadoId() === null) {
-      <p class="estado">Seleccione un rol para ver su menú</p>
+      <p class="estado"><i class="pi pi-arrow-up"></i> Seleccione un rol para ver su menú</p>
     } @else if (menu().length === 0) {
       <p class="estado">Este rol no tiene módulos asignados</p>
     } @else {

@@ -61,7 +61,7 @@ import { Rol } from '../core/models/rol.model';
             <td>{{ modulo.orden }}</td>
             <td>
               @for (rolId of modulo.rolesIds; track rolId) {
-                <p-tag [value]="nombreRol(rolId)" class="tag-rol" />
+                <p-tag [value]="nombreRol(rolId)" [severity]="severidadRol(rolId)" class="tag-rol" />
               } @empty {
                 <span class="sin-roles">Sin roles</span>
               }
@@ -141,11 +141,11 @@ import { Rol } from '../core/models/rol.model';
     </p-dialog>
   `,
   styles: `
-    .pagina { padding: 1.25rem; }
+    .pagina { padding: 2rem; } :host ::ng-deep .p-datatable { background: var(--superficie); border-radius: var(--radio); box-shadow: var(--sombra-sm); overflow: hidden; }
     .encabezado {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 1rem;
-      h2 { margin: 0; }
+      h2 { margin: 0; color: var(--marca-900); font-size: 1.5rem; }
     }
     .formulario { display: flex; flex-direction: column; gap: 1rem; }
     .fila { display: flex; gap: 1rem; .campo { flex: 1; min-width: 0; } }
@@ -211,6 +211,14 @@ export class ModulosPageComponent {
         this.mostrarError('No se pudieron cargar los datos');
       }
     });
+  }
+
+  severidadRol(rolId: number): string {
+    const nombre = this.nombreRol(rolId).toLowerCase();
+    if (nombre.includes("admin")) return "info";
+    if (nombre.includes("supervisor")) return "warn";
+    if (nombre.includes("colaborador")) return "success";
+    return "secondary";
   }
 
   nombreRol(rolId: number): string {

@@ -3,46 +3,95 @@
   height: 100vh;
 }
 
+/* ===== Barra superior ===== */
 .barra-superior {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  border-bottom: 1px solid var(--p-surface-200);
-  background: var(--p-surface-0);
+  padding: 0 1.75rem;
+  height: 68px;
+  background: linear-gradient(135deg, var(--marca-700) 0%, var(--marca-900) 100%);
+  color: #fff;
+  box-shadow: var(--sombra-md);
+  position: relative;
+  z-index: 10;
 
-  .titulo { font-size: 1.15rem; margin: 0; }
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+
+  .titulos { display: flex; flex-direction: column; line-height: 1.2; }
+  .titulo { font-size: 1.1rem; font-weight: 600; margin: 0; }
+  .subtitulo { font-size: 0.78rem; color: var(--marca-300); }
 
   .selector-rol {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+
+    i { color: var(--marca-300); }
+    label { font-size: 0.85rem; color: #e2e8f0; font-weight: 500; }
   }
 }
 
+/* ===== Contenedor principal ===== */
 .contenedor {
   display: flex;
-  height: calc(100vh - 62px);
+  height: calc(100vh - 68px);
 }
 
+/* ===== Menú lateral ===== */
 .menu-lateral {
-  width: 280px;
-  border-right: 1px solid var(--p-surface-200);
-  padding: 1rem 0.75rem;
+  width: 290px;
+  background: var(--superficie);
+  border-right: 1px solid var(--borde);
+  padding: 1.25rem 0.9rem;
   overflow-y: auto;
-  background: var(--p-surface-50);
+
+  .menu-encabezado {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--texto-suave);
+    margin: 0 0 0.75rem 0.6rem;
+  }
 
   .menu-raiz { margin: 0; padding: 0; }
 
   .estado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     text-align: center;
-    color: var(--p-text-muted-color);
-    padding: 1rem;
-    &.error { color: var(--p-red-500); }
+    color: var(--texto-suave);
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    &.error { color: #dc2626; }
   }
 }
 
+/* ===== Área de contenido ===== */
 .contenido {
   flex: 1;
   overflow-y: auto;
+  background: var(--fondo);
 }

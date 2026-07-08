@@ -11,9 +11,12 @@ import { MenuNode } from '../core/models/menu-node.model';
   imports: [RouterLink, RouterLinkActive, MenuItemComponent],
   template: `
     <li class="menu-item">
-      <a [routerLink]="nodo().ruta" routerLinkActive="activo" class="menu-link">
+      <a [routerLink]="nodo().ruta" routerLinkActive="activo"
+         [routerLinkActiveOptions]="{ exact: true }" class="menu-link">
         @if (nodo().icono) {
           <i [class]="nodo().icono"></i>
+        } @else {
+          <i class="pi pi-circle-fill placeholder"></i>
         }
         <span>{{ nodo().nombre }}</span>
       </a>
@@ -32,19 +35,35 @@ import { MenuNode } from '../core/models/menu-node.model';
     .menu-link {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: 6px;
-      color: var(--p-text-color);
+      gap: 0.65rem;
+      padding: 0.55rem 0.75rem;
+      margin-bottom: 2px;
+      border-radius: 8px;
+      color: var(--texto);
       text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+
+      i { font-size: 0.95rem; color: var(--marca-500); width: 18px; text-align: center; }
+      i.placeholder { font-size: 0.4rem; color: #cbd5e1; }
     }
-    .menu-link:hover { background: var(--p-surface-100); }
+    .menu-link:hover {
+      background: var(--marca-100);
+    }
     .menu-link.activo {
-      background: var(--p-primary-100);
-      color: var(--p-primary-700);
-      font-weight: 600;
+      background: linear-gradient(135deg, var(--marca-500), var(--marca-700));
+      color: #fff;
+      box-shadow: var(--sombra-sm);
+      i { color: #fff; }
+      i.placeholder { color: rgba(255,255,255,0.6); }
     }
-    .menu-hijos { margin: 0; padding-left: 1.25rem; }
+    .menu-hijos {
+      margin: 0;
+      padding-left: 1rem;
+      border-left: 1px solid var(--borde);
+      margin-left: 0.85rem;
+    }
   `
 })
 export class MenuItemComponent {

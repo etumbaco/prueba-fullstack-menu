@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { PantallaGenericaComponent } from './shared/pantalla-generica.component';
+import { RolesPageComponent } from './roles/roles-page.component';
 
 export const routes: Routes = [
-  // TODO: rutas reales de gestion (modulos, roles) en el siguiente paso
+  { path: 'administracion/roles', component: RolesPageComponent },
+  // TODO: ruta de gestion de modulos en el siguiente paso
   { path: '**', component: PantallaGenericaComponent }
 ];

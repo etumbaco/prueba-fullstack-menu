@@ -32,3 +32,4 @@ ia-script/faiss_index/
 # ===== Sistema =====
 .DS_Store
 Thumbs.db
+*.log
